@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package barcodegenerator;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
@@ -18,9 +13,14 @@ import org.krysalis.barcode4j.output.bitmap.BitmapCanvasProvider;
 public class BarcodeGenerator {
 
 
-    public static void createImage(String image_name, String myString) {
+    public static void createImage(String imageName, String barcode, String location) {
         try {
-
+            
+            //Filtre du slash 
+            if(!"".equals(location)){location = location+"/";}
+            System.out.println("location = "+location);
+            
+            //Generation Barcode
             Code128Bean code128 = new Code128Bean();
             code128.setHeight(15f);
             code128.setModuleWidth(0.3);
@@ -29,16 +29,16 @@ public class BarcodeGenerator {
 
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             BitmapCanvasProvider canvas = new BitmapCanvasProvider(baos, "image/x-png", 300, BufferedImage.TYPE_BYTE_BINARY, false, 0);
-            code128.generateBarcode(canvas, myString);
+            code128.generateBarcode(canvas, barcode);
             canvas.finish();
 
-            //write to png file
-            FileOutputStream fos = new FileOutputStream(image_name + ".png");
+            //Generation et ecriture sur image
+            FileOutputStream fos = new FileOutputStream(location+""+ imageName + ".png");
             fos.write(baos.toByteArray());
             fos.flush();
             fos.close();
 
-            System.out.println("Généré avec succes");
+            System.out.println("Généré avec succés");
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Erreur " + e);

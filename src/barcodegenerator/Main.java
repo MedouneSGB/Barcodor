@@ -5,11 +5,8 @@
  */
 package barcodegenerator;
 
-import java.awt.Color;
 import java.io.File;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
@@ -27,7 +24,7 @@ public class Main extends javax.swing.JFrame {
     public Main() {
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        } catch (Exception ex) {
+        } catch (ClassNotFoundException | IllegalAccessException | InstantiationException | UnsupportedLookAndFeelException ex) {
         JOptionPane.showMessageDialog(null, " Erreur UImanager " +ex );
         }
         
@@ -111,7 +108,7 @@ public class Main extends javax.swing.JFrame {
         jPanel1.add(LocationTxt);
         LocationTxt.setBounds(120, 190, 203, 28);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/barcodegenerator/1851995.jpg"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/1851995.jpg"))); // NOI18N
         jLabel3.setOpaque(true);
         jPanel1.add(jLabel3);
         jLabel3.setBounds(-840, -180, 1560, 750);
@@ -131,15 +128,20 @@ public class Main extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        //Generation de la date en seconde 1 seconde = 1000 milisecondes
         Date date = new Date();
         long timeMilli = (date.getTime()) / 1000;
-        BarcodeGenerator barcodeG = new BarcodeGenerator();
+        
+        //Recupération des variables essentielles
         String barcodeN = "" + timeMilli;
         int nombre = Integer.parseInt(BarcodeNombre.getValue().toString());
-
+        String location = LocationTxt.getText();
+        
+        //Loop sur le nombre à générer
         for (int i = 0; i < nombre; i++) {
-            barcodeG.createImage(barcodeN + "" + i, barcodeN + "" + i, LocationTxt.getText());
+        BarcodeGenerator.createImage(barcodeN + "" + i, barcodeN + "" + i, location);
         }
+        
         System.out.println(nombre + " fichiers générés");
         JOptionPane.showMessageDialog(null, nombre + " fichiers générés");
         BarcodeNombre.setValue(0);
