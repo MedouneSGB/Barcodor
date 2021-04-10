@@ -7,4 +7,4 @@ Just a simple Barcode Generator 😁
 ![barcodekl](https://user-images.githubusercontent.com/40875400/114254904-b5929900-99a1-11eb-8768-285ddaf9682b.png)
 
 # Why Barcodor?
-Barcodor helps to generate easily Barcodes on the disered derectory
+Barcodor helps to generate easily Barcodes on the disered derectory.
