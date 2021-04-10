@@ -11,6 +11,6 @@ Barcodor helps to generate easily Barcodes on the disered derectory.
 
 # Usefullness?
 Have you ever generated billions of unique barcodes just by   
-giving that magic number the & directory of destination?   
+giving that magic number & the directory of destination?   
 Sure ! everyone did it.  
 But you can do it again and again :fire:  
