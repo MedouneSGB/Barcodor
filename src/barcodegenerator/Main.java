@@ -157,12 +157,18 @@ public class Main extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         //Fonctionalité de Choix de Répertoire
+        try {
+            
         JFileChooser chooser = new JFileChooser();
         chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
         chooser.showOpenDialog(null);
         File f = chooser.getSelectedFile();
         String filename = f.getAbsolutePath();
+        System.out.println("filename = "+filename);
         LocationTxt.setText(filename);
+        } catch (Exception e) {
+            System.out.println("Aucun répertoire n'a été choisi : "+e);
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void BarcodeNombreStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_BarcodeNombreStateChanged
