@@ -7,6 +7,7 @@ package barcodegenerator;
 
 import java.io.File;
 import java.util.Date;
+import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
@@ -22,14 +23,8 @@ public class Main extends javax.swing.JFrame {
      * Creates new form Main
      */
     public Main() {
-        try {
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        } catch (ClassNotFoundException | IllegalAccessException | InstantiationException | UnsupportedLookAndFeelException ex) {
-        JOptionPane.showMessageDialog(null, " Erreur UImanager " +ex );
-        }
-        
         initComponents();
-        
+
     }
 
     /**
@@ -41,6 +36,9 @@ public class Main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        ImageIcon image = new ImageIcon(getClass().getResource("/image/logo.png"));
+        setIconImage(image.getImage());
+        setTitle("Barcodor");
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -52,8 +50,8 @@ public class Main extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(400, 306));
-        setPreferredSize(new java.awt.Dimension(450, 360));
+        setMinimumSize(new java.awt.Dimension(460, 306));
+        setPreferredSize(new java.awt.Dimension(460, 360));
         setResizable(false);
 
         jPanel1.setLayout(null);
@@ -66,7 +64,7 @@ public class Main extends javax.swing.JFrame {
         setLocationRelativeTo(null);
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setForeground(new java.awt.Color(16, 31, 50));
         jLabel2.setText("Nombre de BC à générer");
         jPanel1.add(jLabel2);
         jLabel2.setBounds(130, 70, 190, 19);
@@ -108,16 +106,16 @@ public class Main extends javax.swing.JFrame {
         jPanel1.add(LocationTxt);
         LocationTxt.setBounds(120, 190, 203, 28);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/1851995.jpg"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/font.png"))); // NOI18N
         jLabel3.setOpaque(true);
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(-840, -180, 1560, 750);
+        jLabel3.setBounds(-34, -50, 520, 410);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 437, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -131,21 +129,24 @@ public class Main extends javax.swing.JFrame {
         //Generation de la date en seconde 1 seconde = 1000 milisecondes
         Date date = new Date();
         long timeMilli = (date.getTime()) / 1000;
-        
+
         //Recupération des variables essentielles
         String barcodeN = "" + timeMilli;
         int nombre = Integer.parseInt(BarcodeNombre.getValue().toString());
         String location = LocationTxt.getText();
-        
+
         //Loop sur le nombre à générer
         for (int i = 0; i < nombre; i++) {
-        BarcodeGenerator.createImage(barcodeN + "" + i, barcodeN + "" + i, location);
+            BarcodeGenerator.createImage(barcodeN + "" + i, barcodeN + "" + i, location);
         }
-        
+
+        //Check des retours
         System.out.println(nombre + " fichiers générés");
         JOptionPane.showMessageDialog(null, nombre + " fichiers générés");
+
+        //Reset nombre à générer
         BarcodeNombre.setValue(0);
-        
+
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -155,6 +156,7 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        //Fonctionalité de Choix de Répertoire
         JFileChooser chooser = new JFileChooser();
         chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
         chooser.showOpenDialog(null);
@@ -164,10 +166,11 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void BarcodeNombreStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_BarcodeNombreStateChanged
-        if(0 > Integer.parseInt(BarcodeNombre.getValue().toString())){
-        BarcodeNombre.setValue(0);
+        // Check nombre négatif
+        if (0 > Integer.parseInt(BarcodeNombre.getValue().toString())) {
+            BarcodeNombre.setValue(0);
         }
-        
+
         // TODO add your handling code here:
     }//GEN-LAST:event_BarcodeNombreStateChanged
 
@@ -180,6 +183,7 @@ public class Main extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
+ /*
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -196,7 +200,15 @@ public class Main extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+         */
         //</editor-fold>
+
+        //UIManager 
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (ClassNotFoundException | IllegalAccessException | InstantiationException | UnsupportedLookAndFeelException ex) {
+            JOptionPane.showMessageDialog(null, " Erreur UImanager " + ex);
+        }
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
