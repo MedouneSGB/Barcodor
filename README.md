@@ -7,7 +7,7 @@ Hope you'll enjoy it !
 
 #Technology
 Barcodor is done with Java
-and use [Barcode4J](http://barcode4j.sourceforge.net) lib
+and use [Barcode4J](http://barcode4j.sourceforge.net) library
 
 # Installation
 ```
