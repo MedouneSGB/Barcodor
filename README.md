@@ -5,7 +5,7 @@ a simple Barcode Generator 😁
 Exe format available
 Hope you'll enjoy it !
 
-#Technology
+# Technology
 Barcodor is done with Java
 and use [Barcode4J](http://barcode4j.sourceforge.net) library
 
