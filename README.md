@@ -1,6 +1,21 @@
-# Barcodor
-Just a first version (V1) of  
+# Barcodor v1.0
+Hello here is the first version v1.0 of Barcodor
 a simple Barcode Generator 😁
+
+Exe format available
+Hope you'll enjoy it !
+
+#Technology
+Barcodor is done with Java
+and use [Barcode4J](http://barcode4j.sourceforge.net) lib
+
+# Installation
+```
+Unzip Barcode_V1.rar 
+done !
+
+Just dont delete the lib file it's needed for barcode generation
+```
 
 ![img1](https://user-images.githubusercontent.com/40875400/114424513-b85edb00-9ba7-11eb-8107-e5b18f762b4d.png)
 
