@@ -24,7 +24,7 @@ Just dont delete the lib file it's needed for barcode generation
 ![barcodekl](https://user-images.githubusercontent.com/40875400/114254904-b5929900-99a1-11eb-8768-285ddaf9682b.png)
 
 # Why Barcodor?
-Barcodor helps to easily generate Barcodes on the desired derectory.
+Barcodor helps to easily generate Barcodes on the desired directory.
 
 # Usefullness?
 Have you ever generated billions of unique barcodes just by   
