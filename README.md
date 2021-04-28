@@ -1,5 +1,5 @@
 # Barcodor v1.0
-Hello here is the first version v1.0 of Barcodor
+Hello here is the first version v1.0 of Barcodor  
 a simple Barcode Generator 😁
 
 Exe format available
