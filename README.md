@@ -2,9 +2,6 @@
 Hello here is the first version v1.0 of Barcodor  
 a simple Barcode Generator 😁
 
-Exe format available
-Hope you'll enjoy it !
-
 # Technology
 Barcodor is done with Java
 and use [Barcode4J](http://barcode4j.sourceforge.net) library
