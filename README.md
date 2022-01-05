@@ -28,3 +28,5 @@ Have you ever generated billions of unique barcodes just by
 giving that magic number & the directory of destination?   
 Sure ! everyone did it.  
 But you can do it again and again :fire:  
+
+[![Made-In-Senegal](https://github.com/GalsenDev221/made.in.senegal/blob/master/assets/badge.svg)](https://github.com/GalsenDev221/made.in.senegal)
